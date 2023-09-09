@@ -1,5 +1,5 @@
 
-import logo1 from "./logo1.svg";
+import logo from "./logo.svg";
 import video from "./video.png";
 import game from "./game.png";
 import graphic from "./graphic.png";
@@ -32,7 +32,7 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
 export {
-  logo1,
+  logo,
   video,
   game,
   graphic,

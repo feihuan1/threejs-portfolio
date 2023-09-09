@@ -6,7 +6,7 @@ import { styles } from "../styles";
 
 import { services } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
-import { SectionWraper } from "../hoc";
+import { SectionWrapper } from "../hoc";
 
 const ServiceCard = ({ index, title, icon }) => {
   return (
@@ -42,7 +42,7 @@ const About = () => {
         With a strong foundation in web development and a passion for creating
         captivating digital experiences, I bring a diverse skill set to the
         table. Proficient in HTML, CSS, Tailwind CSS, JavaScript, TypeScript,
-        React, Redux, Next.js, and Three.js, my journey in web development is
+        React, Next.js, and Three.js, my journey in web development is
         guided by a love for coding that drives my everyday work. I'm dedicated
         to ongoing learning and eagerly explore new technologies to enhance my
         craft. While web development is my primary focus, I also enjoy game
@@ -60,4 +60,4 @@ const About = () => {
   );
 };
 
-export default SectionWraper(About, 'about');
+export default SectionWrapper(About, 'about');

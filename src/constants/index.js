@@ -58,7 +58,7 @@ import {
       icon: video,
     },
   ];
-  
+        
   const technologies = [
     {
       name: "HTML 5",
