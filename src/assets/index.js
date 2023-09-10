@@ -9,12 +9,12 @@ import menu from "./menu.svg";
 import close from "./close.svg";
 
 import css from "./tech/css.png";
-import docker from "./tech/docker.png";
-import figma from "./tech/figma.png";
+import next from "./tech/next-js.svg";
+import photoshop from "./tech/photoshop.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
-import mongodb from "./tech/mongodb.png";
+import premiere from "./tech/premiere.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
@@ -22,10 +22,10 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
+import freelance from "./company/freelance.png";
+import youtube from "./company/youtube.png";
+import realtyone from "./company/realtyone.jpg";
+import toyota from "./company/toyota.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -41,23 +41,24 @@ export {
   menu,
   close,
   css,
-  docker,
-  figma,
+  next,
+  photoshop,
   git,
   html,
   javascript,
-  mongodb,
+  premiere,
   nodejs,
   reactjs,
   redux,
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
+  freelance,
+  youtube,
+  realtyone,
+  toyota,
   carrent,
   jobit,
   tripguide,
+
 };
