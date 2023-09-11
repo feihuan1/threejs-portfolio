@@ -15,14 +15,14 @@ import {
     git,
     photoshop,
     next,
+    threejs,
     freelance,
     realtyone,
     toyota,
     youtube,
-    carrent,
-    jobit,
-    tripguide,
-    threejs,
+    hammerGame,
+    recipeBook,
+    shoppingCart
   } from "../assets";
   
   export const navLinks = [
@@ -31,8 +31,12 @@ import {
       title: "About",
     },
     {
-      id: "work",
-      title: "Work",
+      id: "experience",
+      title: "Experiece",
+    },
+    {
+      id: "projects",
+      title: "Projects",
     },
     {
       id: "contact",
@@ -198,67 +202,70 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Whac-A-Mole",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "Web-based game that allows users to customize player and enemy by uploading imge, providing a smooth and joyful game play experience.",
       tags: [
         {
-          name: "react",
+          name: "HTML",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "CSS",
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
+          name: "JavaScript",
           color: "pink-text-gradient",
         },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: hammerGame,
+      source_code_link: "https://github.com/feihuan1/customImageWhackMoleGame",
+      live_demo_link:'https://feihuan1.github.io/customImageWhackMoleGame/'
     },
     {
-      name: "Job IT",
+      name: "Recipe Book",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Web application that renders random recipe from food API, Each recipe pride a link to the detail on how to prepare it.",
       tags: [
         {
-          name: "react",
+          name: "HTML",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "CSS",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "JavaScript",
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+      image: recipeBook,
+      source_code_link: "https://github.com/feihuan1/recipebook",
+      live_demo_link:'https://feihuan1.github.io/recipebook/'
     },
     {
-      name: "Trip Guide",
+      name: "Fashion Store",
       description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "A fully functional e-com site with shopping cart feature, allow user to add, modify and delete item from their cart.",
       tags: [
         {
-          name: "nextjs",
+          name: "HTML",
           color: "blue-text-gradient",
         },
         {
-          name: "supabase",
+          name: "CSS",
           color: "green-text-gradient",
         },
         {
-          name: "css",
+          name: "JavaScript",
           color: "pink-text-gradient",
         },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: shoppingCart,
+      source_code_link: "https://github.com/feihuan1/ShopppingCart",
+      live_demo_link:'https://feihuan1.github.io/ShopppingCart/'
     },
   ];
   

@@ -5,6 +5,7 @@ import game from "./game.png";
 import graphic from "./graphic.png";
 import web from "./web.png";
 import github from "./github.png";
+import link from "./link.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -27,9 +28,11 @@ import youtube from "./company/youtube.png";
 import realtyone from "./company/realtyone.jpg";
 import toyota from "./company/toyota.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+
+import hammerGame from "./projects/hammerGame.png";
+import recipeBook from "./projects/recipeBook.png";
+import shoppingCart from "./projects/shoppingCart.jpg";
+
 
 export {
   logo,
@@ -38,6 +41,7 @@ export {
   graphic,
   web,
   github,
+  link,
   menu,
   close,
   css,
@@ -57,8 +61,7 @@ export {
   youtube,
   realtyone,
   toyota,
-  carrent,
-  jobit,
-  tripguide,
-
+  hammerGame,
+  recipeBook,
+  shoppingCart
 };
