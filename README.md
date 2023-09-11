@@ -2,7 +2,7 @@
 
 this error shows up in console when loads in dev mode, i've been googleing and youtube search for days but still can't find a solution, i will be much apprecialted if someone can help me
 
-app runs find , tying to figure out where can i deploy the app, seems like render.com github and firebase deploy wont load the 3D objects
+app runs fine , tying to figure out where can i deploy the app, seems like render.com github and firebase deploy wont load the 3D objects
 
 THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The "position" attribute is likely to have NaN values. _BufferGeometry {isBufferGeometry: true, uuid: 'bf31fd17-adeb-4611-aeb6-ae317ee33d9f', name: '', type: 'BufferGeometry', index: null, …} 
     at Frustum.intersectsObject (http://localhost:5173/node_modules/.vite/deps/chunk-45ANACZD.js?v=31d9cd19:8524:18)
