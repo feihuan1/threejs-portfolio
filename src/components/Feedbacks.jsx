@@ -1,41 +1,79 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
-import { testimonials } from "../constants";
+// import { reviews } from "../constants";
+import FeedBackForm from "./FeedBackForm";
+import FeedbackCard from "./FeedbackCard";
 
-const FeedbackCard = ({
-  index,
-  testimonial,
-  name,
-  designation,
-  company,
-  image,
-}) => (
-  <motion.div
-    variants={fadeIn("", "spring", index * 0.5, 0.75)}
-    className="bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full"
-  >
-    <p className="text-white font-black text-[48px]">"</p>
-    <div className="mt-1">
-      <p className="text-white tracking-wider text-[18px]">{testimonial}</p>
-    </div>
-    <div className="mt-7 flex justify-between items-center gap-1">
-          <div className="flex-1 flex flex-col">
-            <p className="text-white font-medium text=[16px]">
-              <span className="blue-text-gradient">@</span> {name}
-            </p>
-            <p className="mt-1 text-secondary text-[12px]">
-              {designation} of {company}
-            </p>
-          </div>
-          <img src={image} alt={`feedback-by-${name}`} className="w-10 h-10 rounded-full object-cover" />
-    </div>
-  </motion.div>
-);
+
+
+
 
 const Feedbacks = () => {
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState()
+
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const res = await fetch(
+          "https://portfolio-b571d-default-rtdb.firebaseio.com/reviews.json"
+        );
+        if (!res.ok) {
+          throw new Error('Something went wrong!!!');
+        }
+  
+        const reviewsObj = await res.json();
+  
+        const loadedReviews = [];
+  
+        for (const key in reviewsObj) {
+          loadedReviews.push({
+            name: reviewsObj[key].name,
+            company: reviewsObj[key].company,
+            position: reviewsObj[key].position,
+            review: reviewsObj[key].review,
+          });
+        }
+  
+        setReviews(loadedReviews);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        setHttpError(error.message);
+      }
+    };
+  
+    fetchReviews().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (isLoading) return;
+    // Render reviews whenever reviews or isLoading changes
+  }, [reviews, isLoading]);
+
+  if(isLoading){
+    return <div className="mt-12 bg-black-100 rounded-[20px]">
+      <p className="">Loading...</p>
+    </div>
+  }
+
+  if(httpError){
+    return <div className="mt-12 bg-black-100 rounded-[20px]">
+    <p>{httpError}</p>
+    
+  </div>
+  }
+
+
   return (
     <div className="mt-12 bg-black-100 rounded-[20px]">
       <div
@@ -43,20 +81,21 @@ const Feedbacks = () => {
       >
         <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>What others say</p>
-          <h2 className={styles.sectionHeadText}>Testimonials.</h2>
+          <h2 className={styles.sectionHeadText}>Reviews.</h2>
         </motion.div>
       </div>
       <div className={`${styles.paddingX} -mt-20 pb-14 flex flex-wrap gap-7`}>
-        {testimonials.map((testimonial, index) => (
+        {reviews.map((review, index) => (
           <FeedbackCard
-            key={`${testimonial.name}-${index}`}
+            key={`${review.name}-${index}`}
             index={index}
-            {...testimonial}
+            {...review}
           />
         ))}
       </div>
+      <FeedBackForm setReviews={setReviews} reviews={reviews} />
     </div>
   );
 };
 
-export default SectionWrapper(Feedbacks, "");
+export default SectionWrapper(Feedbacks, "review");

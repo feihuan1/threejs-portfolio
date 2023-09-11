@@ -2,11 +2,11 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
+import Button from "./Button";
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-
 
 const Contact = () => {
   const formRef = useRef();
@@ -20,38 +20,41 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value })
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    emailjs.send(
-      'service_hn4uzxp',
-      'template_a2j60ga', 
-       {
+    emailjs
+      .send(
+        "service_hn4uzxp",
+        "template_a2j60ga",
+        {
           from_name: form.name,
-          to_name: 'Feihuan',
+          to_name: "Feihuan",
           from_email: form.email,
-          to_email: 'pengfeihuan@gmail.com',
-          message: form.message
-       },
-       'VectoB8wuasUpYIEo'
+          to_email: "pengfeihuan@gmail.com",
+          message: form.message,
+        },
+        "VectoB8wuasUpYIEo"
       )
       .then(() => {
         setIsLoading(false);
-        alert('Thank you, I will get back to you ASAP');
+        alert("Thank you, I will get back to you ASAP");
         setForm({
           name: "",
           email: "",
           message: "",
-        })
+        });
       }),
-      (error => {
+      (error) => {
         console.log(error);
-        setIsLoading(false)
-        alert('Something went wrong, please let me know the bug by send directly to my email: pengfeihuan@gmail.com')
-      })
+        setIsLoading(false);
+        alert(
+          "Something went wrong, please let me know the bug by send directly to my email: pengfeihuan@gmail.com"
+        );
+      };
   };
 
   return (
@@ -66,12 +69,13 @@ const Contact = () => {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-12 flex flex-col gap-8" 
+          className="mt-12 flex flex-col gap-8"
           id="contact"
         >
           <label htmlFor="name" className="flex flex-col">
             <span className="text-white font-medium mt-4">Your Name</span>
             <input
+              required
               type="text"
               name="name"
               id="name"
@@ -85,6 +89,7 @@ const Contact = () => {
           <label htmlFor="email" className="flex flex-col">
             <span className="text-white font-medium mt-4">Your Email</span>
             <input
+              required
               type="email"
               name="email"
               id="email"
@@ -98,6 +103,7 @@ const Contact = () => {
           <label htmlFor="message" className="flex flex-col">
             <span className="text-white font-medium mt-4">Your Message</span>
             <textarea
+              required
               rows="7"
               name="message"
               id="message"
@@ -107,17 +113,19 @@ const Contact = () => {
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
-          <button
-            type="submit"
-            className="bg-tertiary py-4 px-16 outline-none w-fit text-white font-bold shadow-md shadow-primary self-center 
-            rounded-xl"
-          >
-            {isloading ? "Sending..." : "Send"}
-          </button>
+
+          <Button type="submit" className="bg-tertiary py-4 px-16 outline-none w-fit text-white font-bold shadow-md shadow-primary self-center 
+            rounded-xl">
+          {isloading ? "Sending..." : "Send"}
+          </Button>
+
         </form>
       </motion.div>
 
-      <motion.div  variants={slideIn("right", "tween", 0.2, 1)} className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]">
+      <motion.div
+        variants={slideIn("right", "tween", 0.2, 1)}
+        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+      >
         <EarthCanvas />
       </motion.div>
     </div>
