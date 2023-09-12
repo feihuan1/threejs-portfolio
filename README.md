@@ -12,3 +12,5 @@ THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The "posit
     at Frustum.intersectsObject (http://localhost:5173/node_modules/.vite/deps/chunk-45ANACZD.js?v=31d9cd19:8524:18)
 
 
+
+live demo: https://sprightly-kashata-50cc9e.netlify.app/
